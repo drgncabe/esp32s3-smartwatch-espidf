@@ -24,7 +24,7 @@ A few of my favorite features:
 
 I did end up trimming a lot of pieces out of this codebase, I had initially implemented a TON of working pentesting tools for my own research purposes, but I figured making this public with those tools still fully implemented was not a realm I wanted to enter. Anyways, enjoy!
 
-> If you are planning to build and flash this project, I highly recommend reading and following this readme.
+> If you are planning to build and flash this project, I highly recommend reading and following this documentation.
 
 ---
 
