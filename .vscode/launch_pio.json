@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug ESP32-S3 (PlatformIO)",
+            "type": "platformio-debug",
+            "request": "launch",
+            "executable": ".pio/build/esp32-s3-devkitc-1-debug/firmware.elf",
+            "toolchainBinDir": "${env:HOME}/.platformio/packages/toolchain-xtensa-esp32s3/bin",
+            "internalConsoleOptions": "openOnSessionStart",
+            "preLaunchTask": "PIO: Start OpenOCD",
+            "postDebugTask": "PIO: Stop OpenOCD"
+        }
+    ]
+}
+

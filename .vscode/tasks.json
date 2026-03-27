@@ -1,0 +1,272 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "PIO: Show Current Environment",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "project",
+                "config"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "PIO: Build Release (Default)",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "esp32-s3-devkitc-1"
+            ],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "PIO: Build Debug",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "esp32-s3-devkitc-1-debug"
+            ],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": "build"
+        },
+        {
+            "label": "PIO: Build Release",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "esp32-s3-devkitc-1"
+            ],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": "build"
+        },
+        {
+            "label": "PIO: Upload Release (Default)",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "esp32-s3-devkitc-1",
+                "-t",
+                "upload"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "PIO: Upload Debug",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "esp32-s3-devkitc-1-debug",
+                "-t",
+                "upload"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "PIO: Upload Release",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "esp32-s3-devkitc-1",
+                "-t",
+                "upload"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "PIO: Clean",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-t",
+                "clean"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "PIO: Monitor",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "device",
+                "monitor"
+            ],
+            "problemMatcher": [],
+            "isBackground": true,
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "PIO: Build & Upload Release (Fast)",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "esp32-s3-devkitc-1",
+                "-t",
+                "upload"
+            ],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": "build"
+        },
+        {
+            "label": "PIO: Quick Upload (No Verify)",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "esp32-s3-devkitc-1",
+                "-t",
+                "upload",
+                "--upload-port",
+                "auto"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "PIO: Check Compilation Only",
+            "type": "shell",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "esp32-s3-devkitc-1",
+                "-t",
+                "checkprog"
+            ],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": "build"
+        },
+        {
+            "label": "PIO: Start OpenOCD",
+            "type": "shell",
+            "command": "${env:HOME}/.platformio/packages/tool-openocd-esp32/bin/openocd",
+            "args": [
+                "-f",
+                "${env:HOME}/.platformio/packages/tool-openocd-esp32/share/openocd/scripts/board/esp32s3-builtin.cfg",
+                "-f",
+                "${workspaceFolder}/openocd_extra.cfg"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "openocd",
+                "pattern": {
+                    "regexp": "^$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Open On-Chip Debugger",
+                    "endsPattern": "ready|Ready|listening|started"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "options": {
+                "env": {
+                    "PATH": "${env:HOME}/.platformio/packages/tool-openocd-esp32/bin:${env:PATH}"
+                }
+            }
+        },
+        {
+            "label": "PIO: Stop OpenOCD",
+            "type": "shell",
+            "command": "pkill",
+            "args": [
+                "-f",
+                "openocd"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
+

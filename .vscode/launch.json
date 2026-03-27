@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug ESP32-S3 (USB-JTAG)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/.pio/build/esp32-s3-devkitc-1-debug/firmware.elf",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "${env:HOME}/.platformio/packages/tool-xtensa-esp-elf-gdb/bin/xtensa-esp32s3-elf-gdb",
+            "miDebuggerArgs": "-x ${workspaceFolder}/.gdbinit",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Connect to OpenOCD",
+                    "text": "target remote :3333"
+                },
+                {
+                    "description": "Reset and halt",
+                    "text": "monitor reset halt",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set breakpoint at app_main",
+                    "text": "tbreak app_main"
+                }
+            ],
+            "preLaunchTask": "PIO: Start OpenOCD",
+            "postDebugTask": "PIO: Stop OpenOCD"
+        }
+    ]
+}
