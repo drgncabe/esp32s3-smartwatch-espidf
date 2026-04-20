@@ -88,7 +88,7 @@ You select which board you are building for in `app_config.h`. More on that belo
 
 ```bash
 git clone <repo-url>
-cd smartwatch_espidf_cleaned
+cd esp32s3-smartwatch-espidf
 ```
 
 Open the folder in VS Code or Cursor. PlatformIO should detect the project automatically from `platformio.ini`.
