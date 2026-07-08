@@ -8,7 +8,9 @@
 
 // See config_types.h for available board types
 // Changing this value will switch support between different boards
-#define BOARD_TYPE BOARD_ESP32_S3_183
+#ifndef BOARD_TYPE
+#define BOARD_TYPE BOARD_ESP32_S3_169_V2
+#endif
 
 // ------- HOTSPOT CONFIGURATION -------
 #define DEFAULT_HOTSPOT_SSID "ESP32-Hotspot"
