@@ -28,6 +28,10 @@ static uint32_t boot_ignore_until = 0;
 static void early_power_latch(void) __attribute__((constructor(101)));
 static void early_power_latch(void)
 {
+    gpio_reset_pin(BUZZER_PIN);
+    gpio_set_direction(BUZZER_PIN, GPIO_MODE_OUTPUT);
+    gpio_set_level(BUZZER_PIN, 0);
+
     gpio_reset_pin(SYS_EN);
     gpio_set_direction(SYS_EN, GPIO_MODE_OUTPUT);
     
@@ -48,6 +52,7 @@ static void early_power_latch(void)
 
 void latch_power(void)
 {
+    gpio_set_level(BUZZER_PIN, 0);
     gpio_set_level(SYS_EN, 1);
     esp_rom_delay_us(100);
     gpio_set_level(SYS_EN, 1);
@@ -129,8 +134,4 @@ void power_button_task(void *arg)
 
         vTaskDelay(pdMS_TO_TICKS(10));
     }
-}
-
-void init_power_button_handler(void){
-    xTaskCreate(power_button_task, "power_btn", 3072, NULL, 3, NULL);
 }
